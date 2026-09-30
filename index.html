@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kiranmala Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--alt:#f3f5f4;--ink:#1c2622;--muted:#4a5852;--card:#fff;--line:#dde3e0;--g:#007a52;--gl:#00c67a;--dark:#1e2028;--black:#0d0f12;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101613;--alt:#151d19;--ink:#e9efec;--muted:#a9b8b1;--card:#18211d;--line:#2a3831;--g:#00c67a}}
+:root[data-theme="dark"]{--bg:#101613;--alt:#151d19;--ink:#e9efec;--muted:#a9b8b1;--card:#18211d;--line:#2a3831;--g:#00c67a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Quicksand,system-ui,sans-serif}
+h1,h2,h3{line-height:1.15;margin:0}
+a{color:inherit}:focus-visible{outline:3px solid var(--gl);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+.bar{background:var(--gl);color:#06281b;font-size:.9rem;font-weight:700}.bar .wrap{display:flex;justify-content:space-between;gap:12px;padding-top:5px;padding-bottom:5px;flex-wrap:wrap}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+nav{display:flex;align-items:center;gap:14px;min-height:58px}
+.logo{font-weight:700;font-size:1.15rem;text-decoration:none;white-space:nowrap;color:var(--g)}
+.links{display:flex;gap:2px;overflow-x:auto;flex:1}
+.links a{text-decoration:none;white-space:nowrap;padding:6px 11px;border-radius:6px;font-weight:700;color:var(--muted)}
+.links a.on{color:var(--g);box-shadow:inset 0 -3px 0 var(--gl)}
+.btn{display:inline-block;background:var(--g);color:#fff;padding:11px 22px;border-radius:6px;font-weight:700;text-decoration:none;border:0;font:inherit;font-weight:700;cursor:pointer}
+.btn.sm{padding:7px 16px}
+[data-theme="dark"] .btn,.dk .btn{color:#04150e}
+.page{display:none}.page.on{display:block}
+.banner{background:var(--black);color:#fff;text-align:center;padding:52px 20px}
+.banner h1{font-size:clamp(2rem,6vw,3rem)}.banner p{color:#cfd8d4;margin:8px auto 0;max-width:56ch}
+.hero{background:linear-gradient(#000a,#000c),#33403a;color:#fff;text-align:center;padding:90px 20px 110px}
+.hero h1{font-size:clamp(2.2rem,7vw,3.8rem);max-width:16ch;margin:0 auto}
+.cta3{display:grid;grid-template-columns:repeat(3,1fr);max-width:760px;margin:-56px auto 0;position:relative;background:var(--g);color:#fff;border-radius:6px;overflow:hidden}
+.cta3 a{padding:24px 16px;text-align:center;text-decoration:none;border-right:1px solid #fff4}.cta3 a:last-child{border:0}
+.cta3 b{display:block;font-size:1.1rem}.cta3 span{font-size:.92rem}
+section{padding:52px 0}.alt{background:var(--alt)}
+h2{font-size:clamp(1.5rem,3.5vw,2rem);margin-bottom:14px}
+h3{font-size:1.15rem;margin-bottom:4px}
+.lead{color:var(--muted);max-width:64ch;margin:0 0 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:22px}
+.card p{margin:4px 0 0;color:var(--muted)}.card .ic{font-size:1.8rem}
+.card a.more{display:inline-block;margin-top:10px;font-weight:700;color:var(--g)}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 4px}
+.badges span{border:2px solid var(--g);color:var(--g);border-radius:99px;padding:5px 14px;font-weight:700;font-size:.95rem}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+.pic{background:linear-gradient(135deg,var(--gl),var(--g));border-radius:8px;min-height:230px;display:grid;place-items:center;color:#fff;font-size:3.5rem}
+.stats{background:var(--black);color:#fff;padding:40px 0}
+.stats .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;text-align:center}
+.stats b{display:block;font-size:2.3rem;color:var(--gl)}
+.av{width:84px;height:84px;border-radius:50%;background:var(--g);color:#fff;display:grid;place-items:center;font-size:1.8rem;font-weight:700;margin-bottom:10px}
+.cap{font-size:.95rem;color:var(--muted);margin-top:8px}
+.tile{aspect-ratio:4/3;border-radius:8px;display:grid;place-items:center;font-size:2.6rem;background:var(--c)}
+.tag{display:inline-block;background:var(--g);color:#fff;font-size:.8rem;font-weight:700;border-radius:4px;padding:1px 9px}
+.form{display:grid;gap:12px}.form label{font-weight:700;font-size:.95rem}
+.form input,.form textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);font:inherit}
+.hp{position:absolute;left:-9999px}
+#ok{display:none;background:var(--alt);border-left:5px solid var(--gl);padding:14px;border-radius:6px;font-weight:700}
+footer{background:var(--dark);color:#e6ebe8;padding:40px 0 20px;font-size:1.02rem}
+footer .grid{margin-top:0}footer h3{color:var(--gl);margin-bottom:8px}footer a{display:block;text-decoration:none;padding:2px 0}
+footer p{margin:4px 0}.copy{border-top:1px solid #fff2;margin-top:24px;padding-top:14px;font-size:.92rem;color:#c5cec9}
+.dock{position:fixed;right:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);display:flex;flex-direction:column;align-items:flex-end;gap:10px;z-index:9;max-width:calc(100% - 28px)}
+#ck{background:var(--dark);color:#fff;padding:12px 14px;border-radius:8px;font-size:.92rem;max-width:340px;display:none}
+#ck button{margin-left:8px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn,:root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#04150e}}
+.tg{background:transparent;border:2px solid var(--line);border-radius:99px;width:38px;height:38px;cursor:pointer;font-size:1.05rem;color:var(--ink)}
+.rot{font-size:1.25rem;font-weight:700;margin-top:18px;min-height:1.7em;color:#9ff0cf}
+.rot span{display:inline-block;transition:opacity .35s}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 18px}
+.chip{border:2px solid var(--g);background:transparent;color:var(--g);padding:9px 18px;border-radius:99px;font:inherit;font-weight:700;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--g);color:#fff}
+#res{display:flex;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-left:8px solid var(--gl);border-radius:8px;padding:22px;flex-wrap:wrap}
+#res .em{font-size:3rem}#res div.t{flex:1;min-width:200px}#res p{margin:4px 0 0;color:var(--muted)}
+#res .row{display:flex;gap:10px;flex-wrap:wrap}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;margin-top:20px}
+.steps div{border-top:4px solid var(--gl);padding-top:12px}.steps b{color:var(--g);font-size:1.5rem}.steps p{margin:4px 0 0;color:var(--muted)}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin-bottom:10px}
+summary{font-weight:700;cursor:pointer}details p{color:var(--muted);margin:10px 0 0}
+.amts{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 16px}
+.partner{background:var(--black);color:#fff;border-radius:10px;padding:34px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.partner p{margin:6px 0 0;color:#cfd8d4;max-width:52ch}
+.nl{display:flex;gap:8px;margin-top:12px;max-width:420px}.nl input{flex:1;min-width:0;padding:10px;border-radius:6px;border:0;font:inherit}
+.res2{display:none;margin-top:14px;background:var(--alt);border-left:5px solid var(--gl);padding:14px;border-radius:6px;font-weight:700}
+#md{position:fixed;inset:0;background:#000b;z-index:20;display:grid;place-items:center;padding:16px}#md[hidden]{display:none}
+.mb{background:var(--bg);color:var(--ink);border-radius:12px;max-width:640px;width:100%;max-height:88vh;overflow:auto;padding:26px;position:relative}
+.mb h2{padding-right:44px}.mb p{color:var(--muted)}#mx{position:absolute;top:12px;right:12px}
+.mnav{display:flex;justify-content:space-between;margin-top:18px}
+.big{aspect-ratio:4/3;border-radius:8px;display:grid;place-items:center;font-size:5.5rem}
+#gallery .grid>div{cursor:pointer}
+.cd{display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between;background:var(--black);color:#fff;border:0;margin-bottom:22px}
+.cd h3{color:var(--gl)}.cd p{color:#cfd8d4;margin:2px 0 0}
+.cdn{display:flex;gap:12px}.cdn div{text-align:center;min-width:64px}.cdn b{display:block;font-size:2rem;color:var(--gl)}
+@media (max-width:720px){.two{grid-template-columns:1fr}.cta3{margin:-40px 14px 0;grid-template-columns:1fr}.cta3 a{border:0;border-bottom:1px solid #fff4}.logo{font-size:1rem}.hero{padding:60px 20px 80px}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+</head>
+<body class="">
+<div class="bar"><div class="wrap"><span>✉ hello@kiranmala.example</span><span>Instagram · LinkedIn · YouTube</span></div></div>
+<header><div class="wrap"><nav>
+<a class="logo" href="#home">🌟 Kiranmala</a>
+<div class="links" id="links"><a href="#home">Home</a><a href="#causes">Causes</a><a href="#about">About Us</a><a href="#volunteers">Volunteers</a><a href="#gallery">Gallery</a><a href="#blog">Blog</a><a href="#events">Events</a><a href="#contact">Contact</a></div>
+<button class="tg" id="tg" type="button" aria-label="Switch light or dark theme">🌓</button>
+<a class="btn sm" href="#donate">Donate</a>
+</nav></div></header>
+
+<main>
+<!-- HOME -->
+<div class="page" id="home">
+<div class="hero"><h1>Nurturing Young Minds, Building Bright Futures</h1><p class="rot" aria-live="off">We are <span id="rw">feeding families</span></p></div>
+<div class="cta3"><a href="#contact"><b>Donate Us</b><span>Make a difference with your donation today</span></a><a href="#volunteers"><b>Become A Volunteer</b><span>Join us and be the change you wish to see</span></a><a href="#about"><b>Join Us</b><span>Step in, stand out, and create impact</span></a></div>
+<section><div class="wrap two">
+<div><h2>Get to Know Us Better</h2>
+<h3>Our history</h3><p class="lead">Kiranmala Foundation is a volunteer-led non-profit started in 2021 by Ananya Rao (Founder &amp; Director) and based in Bhopal, Madhya Pradesh.</p>
+<h3>Our promises</h3><div class="badges"><span>Open accounts</span><span>Volunteer-led</span><span>Local first</span><span>Clear reporting</span></div>
+<h3 style="margin-top:12px">Our projects</h3><p class="lead">Six projects: Annapurna, Shikshadeep, Pashu Mitra, Sashakt, Hariyali and Kaushal.</p>
+<a class="btn" href="#about">Learn More</a></div>
+<div class="pic" aria-hidden="true">🧒🏽📚</div>
+</div></section>
+<section class="alt"><div class="wrap"><h2>Find your cause</h2><p class="lead">Tap what you care about most and we will show you where you can help.</p>
+<div class="chips" id="chips" role="group" aria-label="Pick a cause">
+<button class="chip" type="button" aria-pressed="true" data-k="kids">📚 Children</button><button class="chip" type="button" aria-pressed="false" data-k="pets">🐕 Animals</button><button class="chip" type="button" aria-pressed="false" data-k="women">👩🏽‍🔧 Women</button><button class="chip" type="button" aria-pressed="false" data-k="green">🌳 Nature</button><button class="chip" type="button" aria-pressed="false" data-k="food">🍲 Hunger</button><button class="chip" type="button" aria-pressed="false" data-k="jobs">💼 Careers</button></div>
+<div id="res" aria-live="polite"><div class="em" id="rem">📚</div><div class="t"><h3 id="rn">Project Shikshadeep</h3><p id="rd">Education for underprivileged children: digital literacy, life skills and school support.</p></div><div class="row"><a class="btn" href="#contact">Donate</a><a class="btn" href="#volunteers" style="background:transparent;color:var(--g);border:2px solid var(--g)">Volunteer</a></div></div>
+</div></section>
+<div class="stats"><div class="wrap">
+<div><b class="cnt" data-to="12000" data-suf="+">12,000+</b>Meals &amp; clothing</div>
+<div><b class="cnt" data-to="5000" data-suf="+">5,000+</b>Saplings planted</div>
+<div><b class="cnt" data-to="800" data-suf="+">800+</b>Learners skilled</div>
+<div><b class="cnt" data-to="6" data-suf="">6</b>Projects</div><div style="grid-column:1/-1;font-size:.85rem;color:#a9b8b1">Sample figures for a demo project.</div>
+</div></div>
+<section><div class="wrap"><h2>How your help works</h2>
+<div class="steps"><div><b>1</b><h3>Pick a cause</h3><p>Choose from six projects, from food and education to animals and nature.</p></div><div><b>2</b><h3>Give time or money</h3><p>Donate, volunteer, or bring your company in as a partner.</p></div><div><b>3</b><h3>See the work</h3><p>Follow our gallery, blog and events to see what your support does.</p></div></div></div></section>
+<section class="alt"><div class="wrap"><div class="partner"><div><h2 style="margin:0">Bring your company on board</h2><p>Partner with us on clear, transparent projects and involve your team as volunteers.</p></div><a class="btn" style="background:var(--gl);color:#06281b" href="#contact">Talk to our partnerships team</a></div></div></section>
+<section><div class="wrap"><h2>Questions people ask</h2>
+<details><summary>Are donations tax-exempt?</summary><p>Add your tax-exemption details here if the NGO is registered. Write to us to ask about your donation.</p></details>
+<details><summary>How can I volunteer?</summary><p>Open the Volunteers page, pick the areas you like and send the short form. The team will contact you.</p></details>
+<details><summary>Can my company partner with you?</summary><p>Yes. We work with companies on transparent, measurable projects. Reach out through the Contact page.</p></details>
+<details><summary>Where are you based?</summary><p>Our office is in Bhopal, Madhya Pradesh, and we work with communities nearby.</p></details>
+<details><summary>How will I know my help made a difference?</summary><p>We share our work openly through the Gallery, Blog and Events pages.</p></details>
+</div></section>
+<section class="alt"><div class="wrap"><h2>Our Causes</h2><p class="lead">Six projects, each with one clear job.</p><a class="btn" href="#causes">View All Causes</a></div></section>
+<section><div class="wrap"><h2>Latest events</h2><p class="lead">See what we have done so far and what is coming next.</p><a class="btn" href="#events">See Events</a></div></section>
+</div>
+
+<!-- CAUSES -->
+<div class="page" id="causes">
+<div class="banner"><h1>Causes</h1><p>Home / Causes</p></div>
+<section><div class="wrap"><div class="grid" style="margin-top:0">
+<div class="card"><div class="ic">🍲</div><h3>Project Annapurna</h3><p>Food and clothing for the underprivileged. Over 12,000 meals and clothes distributed.</p><a class="more" href="#contact">Donate to Annapurna</a></div>
+<div class="card"><div class="ic">📚</div><h3>Project Shikshadeep</h3><p>Education for underprivileged children: digital literacy, life skills and school support.</p><a class="more" href="#contact">Donate to Shikshadeep</a></div>
+<div class="card"><div class="ic">🐕</div><h3>Project Pashu Mitra</h3><p>Animal welfare. Stray animals fed daily by our volunteer network.</p><a class="more" href="#contact">Donate to Pashu Mitra</a></div>
+<div class="card"><div class="ic">👩🏽‍🔧</div><h3>Project Sashakt</h3><p>Women's empowerment through self-help groups, skills and menstrual hygiene awareness.</p><a class="more" href="#contact">Donate to Sashakt</a></div>
+<div class="card"><div class="ic">🌳</div><h3>Project Hariyali</h3><p>Environment: 5,000+ saplings planted and support for eco-friendly farming.</p><a class="more" href="#contact">Donate to Hariyali</a></div>
+<div class="card"><div class="ic">💼</div><h3>Project Kaushal</h3><p>Jobs and skills through internships in data, finance, research, writing and marketing. 800+ interns trained.</p><a class="more" href="#volunteers">Join Kaushal</a></div>
+</div></div></section>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="about">
+<div class="banner"><h1>About Us</h1><p>Home / About</p></div>
+<section><div class="wrap two">
+<div><h2>Kiranmala Foundation</h2><p class="lead">Kiranmala Foundation began in 2021 as a small group of friends feeding families in one neighbourhood. Today a network of volunteers and partners works on food, education, animals, women and the environment around Bhopal.</p>
+<p class="lead">Every initiative runs on transparent operations and strong partnerships, so support reaches the right people.</p></div>
+<div class="card"><div class="av">AR</div><h3>Ananya Rao</h3><p>Founder &amp; Director</p></div>
+</div></section>
+<section><div class="wrap"><h2>What drives us</h2><div class="grid" style="margin-top:12px">
+<div class="card"><div class="ic">🎯</div><h3>Our mission</h3><p>Bring real change to people, animals and the planet through education, food, care, women's empowerment and skills.</p></div>
+<div class="card"><div class="ic">🔍</div><h3>Transparency</h3><p>Clear operations and open sharing of our work, so every supporter can see where help goes.</p></div>
+<div class="card"><div class="ic">📋</div><h3>Accountability</h3><p>Clear goals and regular reporting, with standards we hold ourselves to.</p></div>
+<div class="card"><div class="ic">🤲</div><h3>Collective action</h3><p>We believe in the power of many hands: volunteers, partners and donors working together.</p></div>
+</div></div></section>
+<section class="alt"><div class="wrap"><h2>How we work</h2><div class="grid" style="margin-top:12px"><div class="card"><h3>🔍 Open accounts</h3><p>We share how every rupee is used.</p></div><div class="card"><h3>🏘 Local first</h3><p>We train and hire people from the neighbourhood.</p></div><div class="card"><h3>🤝 Partner friendly</h3><p>Companies and schools can join our projects.</p></div><div class="card"><h3>📈 Clear goals</h3><p>Every project has simple targets we report on.</p></div></div></div></section>
+<section><div class="wrap"><h2>Our key initiatives</h2><p class="lead">Annapurna, Shikshadeep, Pashu Mitra, Sashakt, Hariyali and Kaushal, each with its own page section under Causes.</p><a class="btn" href="#causes">See all six</a></div></section>
+</div>
+
+<!-- VOLUNTEERS -->
+<div class="page" id="volunteers">
+<div class="banner"><h1>Volunteers</h1><p>Home / Volunteers</p></div>
+<section><div class="wrap"><h2>Core leadership</h2><p class="lead">Leaders are shown here. Many more volunteers are part of our wider team, and we share their stories with their consent.</p>
+<div class="grid">
+<div class="card"><div class="av">AR</div><h3>Ananya Rao</h3><p>Founder &amp; Director</p></div>
+<div class="card"><div class="av">RI</div><h3>Rohan Iyer</h3><p>Head of Programmes</p></div>
+<div class="card"><div class="av">MK</div><h3>Meera Kulkarni</h3><p>Partnerships Lead</p></div>
+</div>
+<p class="cap">Photo placeholders use one style. Ask each leader for a photo in the same format and add it here.</p>
+<div class="card" style="margin-top:22px"><h2>Volunteer sign-up</h2><p class="lead">Pick the areas you would like to help with, then send your details.</p>
+<div class="chips" id="vchips" role="group" aria-label="Areas of interest"><button class="chip" type="button" aria-pressed="false">🍲 Food &amp; clothing</button><button class="chip" type="button" aria-pressed="false">📚 Teaching</button><button class="chip" type="button" aria-pressed="false">🐕 Animal care</button><button class="chip" type="button" aria-pressed="false">👩🏽‍🔧 Women's skills</button><button class="chip" type="button" aria-pressed="false">🌳 Plantation</button><button class="chip" type="button" aria-pressed="false">💼 Internships</button></div>
+<div class="form"><label for="vn">Full name</label><input id="vn" autocomplete="name"><label for="ve">Email</label><input id="ve" type="email" autocomplete="email"><button class="btn" id="vgo" type="button">Send my details</button></div><div class="res2" id="vok" role="status"></div></div>
+</div></section>
+</div>
+
+<!-- GALLERY -->
+<div class="page" id="gallery">
+<div class="banner"><h1>Gallery</h1><p>Home / Gallery</p></div>
+<section><div class="wrap"><p class="lead">Every photo has a caption. Replace each tile with a real photo and its date.</p><div class="chips" id="gf" role="group" aria-label="Filter by project"></div>
+<div class="grid" style="margin-top:0">
+<div><div class="tile" style="--c:#f3c9a0">🐕</div><p class="cap"><b>Project Pashu Mitra</b> · stray feeding drive</p></div>
+<div><div class="tile" style="--c:#bfe3c6">🍲</div><p class="cap"><b>Project Annapurna</b> · food distribution</p></div>
+<div><div class="tile" style="--c:#c8e6a8">🌱</div><p class="cap"><b>Project Hariyali</b> · tree plantation</p></div>
+<div><div class="tile" style="--c:#b9d6f0">📚</div><p class="cap"><b>Project Shikshadeep</b> · classroom support</p></div>
+<div><div class="tile" style="--c:#f0c0dc">🧵</div><p class="cap"><b>Project Sashakt</b> · skills workshop</p></div>
+<div><div class="tile" style="--c:#f5e6a0">💻</div><p class="cap"><b>Project Kaushal</b> · internship session</p></div>
+</div></div></section>
+</div>
+
+<!-- BLOG -->
+<div class="page" id="blog">
+<div class="banner"><h1>Blog</h1><p>Home / Blog</p></div>
+<section><div class="wrap"><div class="grid" style="margin-top:0">
+<div class="card"><h3>Project Kaushal: Transforming Young Minds Through Skills</h3><p>How internships are helping young people become job-ready.</p><a class="more" href="#blog">Read more</a></div>
+<div class="card"><h3>Mission Life: A Great Vision for a Greener Earth</h3><p>Why sustainable living matters and how to start.</p><a class="more" href="#blog">Read more</a></div>
+<div class="card"><h3>Save Water, Save Life</h3><p>Only a small part of Earth's water is safe to drink.</p><a class="more" href="#blog">Read more</a></div>
+<div class="card"><h3>Adopt a Healthy Lifestyle in Small Steps</h3><p>Simple habits for whole-body wellbeing.</p><a class="more" href="#blog">Read more</a></div>
+<div class="card"><h3>Sashakt: Where Women Rise</h3><p>Skills and support that help women earn and lead.</p><a class="more" href="#blog">Read more</a></div>
+<div class="card"><h3>Project Pashu Mitra: Caring for Strays in Our City</h3><p>Feeding drives and care for street animals.</p><a class="more" href="#blog">Read more</a></div>
+</div>
+<p class="cap">Fake view counts removed. Full titles wrap instead of cutting off. Add real post links when ready.</p></div></section>
+</div>
+
+<!-- EVENTS -->
+<div class="page" id="events">
+<div class="banner"><h1>Events</h1><p>Home / Events</p></div>
+<section><div class="wrap"><h2>Upcoming events</h2>
+<div class="card cd"><div><h3>Next awareness day on our calendar</h3><p id="cdn">Loading…</p><p style="font-size:.9rem">Days we like to mark on our calendar. Event details will be announced.</p></div><div class="cdn" id="cdt" aria-live="off"></div></div>
+<div class="card"><p>No upcoming events are scheduled right now. Follow us or write to us to hear about the next one.</p><a class="more" href="#contact">Get event updates</a></div></div></section>
+<section class="alt"><div class="wrap"><h2>Past events</h2><div class="grid" style="margin-top:12px">
+<div class="card"><span class="tag">Community</span><p>📅 14 August 2026</p><h3>Community Tree Plantation Drive</h3><p>Volunteers planted saplings in a local park and pledged to care for them.</p></div>
+<div class="card"><span class="tag">Community</span><p>📅 5 July 2026</p><h3>Winter Clothes Collection</h3><p>Neighbours donated warm clothes that were sorted and handed out to families in need.</p></div>
+<div class="card"><span class="tag">Education</span><p>📅 21 June 2026</p><h3>Summer Reading Camp</h3><p>Story sessions and book sharing for children from nearby settlements.</p></div>
+</div></div></section>
+</div>
+
+<!-- DONATE -->
+<div class="page" id="donate">
+<div class="banner"><h1>Donate</h1><p>Every rupee helps a project you choose.</p></div>
+<section><div class="wrap two" style="align-items:start">
+<div class="card"><h2>Choose your gift</h2>
+<label for="dp"><b>Support</b></label>
+<select id="dp" style="width:100%;padding:11px;margin:6px 0 14px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);font:inherit"><option>the area that needs it most</option><option>Project Annapurna</option><option>Project Shikshadeep</option><option>Project Pashu Mitra</option><option>Project Sashakt</option><option>Project Hariyali</option><option>Project Kaushal</option></select>
+<b>Amount</b><div class="amts" id="amts" role="group" aria-label="Donation amount"><button class="chip" type="button" aria-pressed="false" data-a="500">₹500</button><button class="chip" type="button" aria-pressed="true" data-a="1000">₹1,000</button><button class="chip" type="button" aria-pressed="false" data-a="2500">₹2,500</button><button class="chip" type="button" aria-pressed="false" data-a="5000">₹5,000</button><button class="chip" type="button" aria-pressed="false" data-a="c">Other</button></div>
+<input id="cu" type="number" min="1" placeholder="Enter amount in ₹" aria-label="Custom amount" style="display:none;width:100%;padding:11px;margin-bottom:14px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);font:inherit">
+<button class="btn" id="dgo" type="button">Continue</button><div class="res2" id="dr" role="status"></div></div>
+<div><h2>Why give through Kiranmala</h2>
+<div class="badges"><span>Open accounts</span><span>Clear reporting</span><span>Volunteer-led</span></div>
+<p class="lead">Every gift goes to the project you choose, and we share how it is used. Add tax-exemption details here if the NGO is registered.</p>
+<p class="lead">Prefer to give time? <a href="#volunteers" style="color:var(--g);font-weight:700">Become a volunteer</a>.</p>
+<p class="cap">Online payment is not connected in this demo. Add the foundation's official payment link or UPI details here.</p></div>
+</div></section>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="contact">
+<div class="banner"><h1>Contact</h1><p>Home / Contact</p></div>
+<section><div class="wrap two" style="align-items:start">
+<div><h2>Get in touch</h2>
+<p><b>📍 Address</b><br>12 Diya Lane, Arera Colony, Bhopal, Madhya Pradesh 462016</p>
+<p><b>✉ Email</b><br>hello@kiranmala.example</p>
+<p><b>📞 Phone</b><br>+91 98765 43210</p>
+<a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Arera+Colony+Bhopal+Madhya+Pradesh">Open in Google Maps</a></div>
+<div><div class="form" id="f">
+<label for="n">Full name</label><input id="n" autocomplete="name">
+<label for="e">Email</label><input id="e" type="email" autocomplete="email">
+<label for="m">Your message</label><textarea id="m" rows="4"></textarea>
+<input class="hp" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+<button class="btn" id="sub" type="button">Submit</button>
+<div id="ok" role="status">Thank you! We have your message and will be in touch soon.</div>
+</div></div>
+</div></section>
+</div>
+
+<!-- PRIVACY -->
+<div class="page" id="privacy">
+<div class="banner"><h1>Privacy Policy</h1><p>How we handle your information</p></div>
+<section><div class="wrap"><p class="lead">We collect your name, email and message only when you write to us or subscribe. We use them to reply and share updates. We do not sell your data. To remove your details, email hello@kiranmala.example.</p>
+<p class="cap">Sample text. Have the foundation review it before real use.</p></div></section>
+</div>
+</main>
+
+<footer><div class="wrap">
+<div class="grid">
+<div><h3>Kiranmala Foundation</h3><p>Follow us: Instagram · LinkedIn · YouTube</p></div>
+<div><h3>Useful links</h3><a href="#events">Events</a><a href="#volunteers">Volunteers</a><a href="#gallery">Gallery</a><a href="#blog">Blog</a><a href="#causes">Causes</a></div>
+<div><h3>Pages</h3><a href="#about">About Us</a><a href="#contact">Contact</a><a href="#privacy">Privacy Policy</a></div>
+<div><h3>Contact us</h3><p>12 Diya Lane, Arera Colony, Bhopal, Madhya Pradesh 462016</p><p>+91 98765 43210</p></div>
+</div>
+<div><h3>Stay in the loop</h3><p>Get news of new events and projects.</p><div class="nl"><input id="nle" type="email" placeholder="Email address" aria-label="Email address"><button class="btn sm" id="nlb" type="button" style="background:var(--gl);color:#06281b">Join</button></div><p id="nlo" role="status" style="font-weight:700"></p></div>
+<p style="margin-top:14px"><button class="btn sm" id="sh" type="button" style="background:transparent;border:2px solid #fff6;color:#fff">🔗 Share this site</button> <span id="sho" role="status"></span></p>
+<div class="copy">© 2026 Kiranmala Foundation. A fictional NGO made with AI for a learning task. All names, figures and events are sample content.</div>
+</div></footer>
+
+<div id="md" role="dialog" aria-modal="true" aria-labelledby="mt" hidden><div class="mb"><button id="mx" class="tg" type="button" aria-label="Close">✕</button><div id="mc"></div><div class="mnav"><button class="btn sm" id="mp" type="button">‹ Previous</button><button class="btn sm" id="mnx" type="button">Next ›</button></div></div></div>
+<div class="dock"><div id="ck">We use basic cookies to make this site work. <a href="#privacy" style="color:#00c67a">Privacy</a><button class="btn sm" id="ckb" type="button">OK</button></div>
+<a class="btn" href="#volunteers">🙋 Volunteer</a></div>
+
+<script>
+(function(){
+var pages=document.querySelectorAll('.page'),links=document.querySelectorAll('#links a');
+function show(){
+  var id=(location.hash||'#home').slice(1),el=document.getElementById(id);
+  if(!el||!el.classList.contains('page'))id='home';
+  pages.forEach(function(p){p.classList.toggle('on',p.id===id)});
+  links.forEach(function(a){var on=a.getAttribute('href')==='#'+id;a.classList.toggle('on',on);if(on&&a.scrollIntoView)a.scrollIntoView({inline:'center',block:'nearest'})});
+  document.title=(id==='home'?'':id.charAt(0).toUpperCase()+id.slice(1)+' | ')+'Kiranmala Foundation';
+  window.scrollTo(0,0);
+}
+addEventListener('hashchange',show);show();
+/* impact counters: run once only */
+var still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function run(el){var t=+el.dataset.to,s=el.dataset.suf,st=performance.now();(function f(n){var p=Math.min((n-st)/1200,1);el.textContent=Math.round(t*p).toLocaleString('en-IN')+(p===1?s:'');if(p<1)requestAnimationFrame(f)})(st)}
+if('IntersectionObserver' in window&&!still){
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){io.unobserve(x.target);run(x.target)}})});
+  document.querySelectorAll('.cnt').forEach(function(c){io.observe(c)});
+}
+/* contact form: thank-you message, spam trap */
+document.getElementById('sub').onclick=function(){
+  var n=document.getElementById('n').value.trim(),e=document.getElementById('e').value.trim(),m=document.getElementById('m').value.trim();
+  if(document.getElementById('hp').value)return;
+  var ok=document.getElementById('ok');
+  if(!n||!/.+@.+\..+/.test(e)||!m){ok.style.display='block';ok.textContent='Please fill in your name, a valid email and a message.';return}
+  ok.textContent='Thank you! We have your message and will be in touch soon.';ok.style.display='block';
+};
+/* rotating hero words */
+var W=['feeding families','teaching children','caring for animals','empowering women','planting trees','training young talent'],wi=0,rw=document.getElementById('rw');
+setInterval(function(){rw.style.opacity=0;setTimeout(function(){wi=(wi+1)%W.length;rw.textContent=W[wi];rw.style.opacity=1},350)},2600);
+/* find your cause */
+var P={kids:['📚','Project Shikshadeep','Education for underprivileged children: digital literacy, life skills and school support.'],
+pets:['🐕','Project Pashu Mitra','Animal welfare. Stray animals are fed daily by our volunteer network.'],
+women:['👩🏽‍🔧','Project Sashakt','Women\'s empowerment through self-help groups, skills and menstrual hygiene awareness.'],
+green:['🌳','Project Hariyali','Environment: 5,000+ saplings planted and support for eco-friendly farming.'],
+food:['🍲','Project Annapurna','Food and clothing for the underprivileged. Over 12,000 meals and clothes distributed.'],
+jobs:['💼','Project Kaushal','Jobs and skills through internships. 800+ interns trained.']};
+document.getElementById('chips').addEventListener('click',function(ev){
+  var b=ev.target.closest('.chip');if(!b)return;var p=P[b.dataset.k];
+  this.querySelectorAll('.chip').forEach(function(c){c.setAttribute('aria-pressed',c===b)});
+  document.getElementById('rem').textContent=p[0];document.getElementById('rn').textContent=p[1];document.getElementById('rd').textContent=p[2];
+});
+/* theme toggle */
+document.getElementById('tg').onclick=function(){
+  var r=document.documentElement,cur=r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  r.setAttribute('data-theme',cur==='dark'?'light':'dark');
+};
+/* donate */
+var amt=1000,pd=document.getElementById('amts'),cu=document.getElementById('cu');
+pd.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;
+  pd.querySelectorAll('.chip').forEach(function(c){c.setAttribute('aria-pressed',c===b)});
+  if(b.dataset.a==='c'){cu.style.display='block';cu.focus()}else{cu.style.display='none';amt=+b.dataset.a}});
+document.getElementById('dgo').onclick=function(){
+  var a=cu.style.display==='block'?+cu.value:amt,o=document.getElementById('dr');o.style.display='block';
+  o.textContent=a>0?'Thank you! You chose ₹'+a.toLocaleString('en-IN')+' for '+document.getElementById('dp').value+'. Online payment is not connected in this demo. Please email hello@kiranmala.example to complete your gift.':'Please enter an amount above 0.';
+};
+/* volunteer sign-up */
+document.getElementById('vchips').addEventListener('click',function(e){var b=e.target.closest('.chip');if(b)b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true')});
+document.getElementById('vgo').onclick=function(){
+  var n=document.getElementById('vn').value.trim(),m=document.getElementById('ve').value.trim(),o=document.getElementById('vok'),
+  sel=[].map.call(document.querySelectorAll('#vchips [aria-pressed="true"]'),function(c){return c.textContent.replace(/^\S+\s/,'')});
+  o.style.display='block';
+  o.textContent=(!n||!/.+@.+\..+/.test(m))?'Please add your name and a valid email.':'Thank you, '+n+'! '+(sel.length?'You are interested in: '+sel.join(', ')+'. ':'')+'We will be in touch soon. (Demo: details are not sent yet.)';
+};
+/* gallery filter */
+var gg=document.querySelectorAll('#gallery .grid > div'),gf=document.getElementById('gf'),html='<button class="chip" type="button" aria-pressed="true" data-p="all">All</button>';
+gg.forEach(function(d){var t=d.querySelector('.cap b').textContent;d.dataset.p=t;html+='<button class="chip" type="button" aria-pressed="false" data-p="'+t+'">'+t.replace('Project ','')+'</button>'});
+gf.innerHTML=html;
+gf.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;
+  gf.querySelectorAll('.chip').forEach(function(c){c.setAttribute('aria-pressed',c===b)});
+  gg.forEach(function(d){d.hidden=b.dataset.p!=='all'&&d.dataset.p!==b.dataset.p})});
+/* newsletter */
+document.getElementById('nlb').onclick=function(){var v=document.getElementById('nle').value.trim();
+  document.getElementById('nlo').textContent=/.+@.+\..+/.test(v)?'Thanks for subscribing! (Demo: not saved yet.)':'Please enter a valid email.'};
+/* modal: gallery lightbox + blog articles */
+var md=document.getElementById('md'),mc=document.getElementById('mc'),mode,idx,items,opener;
+var A=[['Project Kaushal: Transforming Young Minds Through Skills','Project Kaushal helps young people move from learning to earning. Through internships in data operations, finance, research, content writing, digital marketing and social work, interns gain real skills. In the last four years, more than 800 learners have trained with the foundation.'],
+['Mission Life: A Great Vision for a Greener Earth','Sustainable living starts with small habits: using less plastic, saving water and planting trees. Project Hariyali has planted over 5,000 saplings and supports eco-friendly farming, and every volunteer can join a plantation drive.'],
+['Save Water, Save Life','Water covers about 70% of the Earth\'s surface, yet less than 1% is accessible and safe for people to use. On World Water Day we highlight why conserving water is a shared responsibility, at home and in the community.'],
+['Adopt a Healthy Lifestyle in Small Steps','Good health is built on simple habits: balanced meals, enough water and sleep, and a little movement every day. Start with one change this week and add another next week.'],
+['Sashakt: Where Women Rise','Project Sashakt works with self-help groups in rural areas to promote financial independence and skill development, and spreads awareness about menstrual hygiene. When a woman earns and leads, her whole family benefits.'],
+['Project Pashu Mitra: Caring for Strays in Our City','Project Pashu Mitra feeds stray animals every day through our volunteer network. Animals share our streets, and a little food, water and care go a long way. You can join a feeding drive as a volunteer.']];
+function render(){
+  if(mode==='g'){var t=items[idx],tl=t.querySelector('.tile');
+    mc.innerHTML='<div class="big" style="background:'+getComputedStyle(tl).backgroundColor+'">'+tl.textContent+'</div><p class="cap" id="mt">'+t.querySelector('.cap').innerHTML+'</p>'}
+  else{var a=A[idx];mc.innerHTML='<h2 id="mt"></h2><p></p><p class="cap">Sample write-up. Replace with the foundation\'s published post.</p>';
+    mc.querySelector('h2').textContent=a[0];mc.querySelectorAll('p')[0].textContent=a[1]}
+}
+function openM(m,i,list){mode=m;idx=i;items=list;opener=document.activeElement;render();md.hidden=false;document.getElementById('mx').focus()}
+function step(d){var n=(mode==='g'?items.length:A.length);idx=(idx+d+n)%n;render()}
+function closeM(){md.hidden=true;if(opener&&opener.focus)opener.focus()}
+document.getElementById('mx').onclick=closeM;document.getElementById('mp').onclick=function(){step(-1)};document.getElementById('mnx').onclick=function(){step(1)};
+md.addEventListener('click',function(e){if(e.target===md)closeM()});
+addEventListener('keydown',function(e){if(md.hidden)return;if(e.key==='Escape')closeM();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1)});
+gg.forEach(function(d){d.tabIndex=0;d.setAttribute('role','button');
+  var go=function(){var vis=[].filter.call(gg,function(x){return !x.hidden});openM('g',vis.indexOf(d),vis)};
+  d.addEventListener('click',go);d.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}})});
+document.querySelectorAll('#blog .more').forEach(function(a,i){a.addEventListener('click',function(e){e.preventDefault();openM('b',i,null)})});
+/* awareness-day countdown */
+var DAYS=[[1,11,'International Day of Women and Girls in Science'],[2,20,'International Day of Happiness'],[2,22,'World Water Day']],cdt=document.getElementById('cdt'),cdn=document.getElementById('cdn');
+function nextDay(){var now=new Date(),best=null;DAYS.forEach(function(x){var d=new Date(now.getFullYear(),x[0],x[1]);if(d<now)d=new Date(now.getFullYear()+1,x[0],x[1]);if(!best||d<best[0])best=[d,x[2]]});return best}
+function tick(){var n=nextDay(),ms=n[0]-new Date(),s=Math.floor(ms/1000),
+  v=[Math.floor(s/86400),Math.floor(s%86400/3600),Math.floor(s%3600/60),s%60],l=['days','hrs','min','sec'];
+  cdn.textContent=n[1]+' · '+n[0].toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  cdt.innerHTML=v.map(function(x,i){return '<div><b>'+x+'</b>'+l[i]+'</div>'}).join('')}
+tick();setInterval(tick,1000);
+/* share */
+document.getElementById('sh').onclick=function(){
+  var u=location.href.split('#')[0],o=document.getElementById('sho');
+  if(navigator.share){navigator.share({title:'Kiranmala Foundation',url:u}).catch(function(){})}
+  else if(navigator.clipboard){navigator.clipboard.writeText(u).then(function(){o.textContent='Link copied!'},function(){o.textContent=u})}
+  else{o.textContent=u}
+};
+/* cookie notice */
+var ck=document.getElementById('ck'),seen=false;
+try{seen=localStorage.getItem('ck')==='1'}catch(e){}
+if(!seen)ck.style.display='block';
+document.getElementById('ckb').onclick=function(){ck.style.display='none';try{localStorage.setItem('ck','1')}catch(e){}};
+})();
+</script>
+</body>
+</html>
